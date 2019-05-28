@@ -1,0 +1,5 @@
+.vscode/
+ecosystem.config.js
+node_modules/
+public/
+server/
