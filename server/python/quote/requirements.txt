@@ -1,0 +1,7 @@
+nltk
+tensorflow
+pandas
+gensim
+# git clone https://github.com/ioatr/textcnn.git
+# mv textcnn text_cnn_
+# mv text_cnn_/textcnn text_cnn_/TextCNN
