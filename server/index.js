@@ -1,4 +1,4 @@
-let express = require('express')
+let express = require('e xpress')
 let Essay = require('./models/essay')
 let {PythonShell} = require('python-shell')
 
@@ -28,13 +28,12 @@ router.get('/essay/:youtube_id', (req, res) => {
 
     PythonShell.run('youtube_script_api.py', options, function (err, result) {
         if (err) throw err;
-        
-	console.log(result)
+
         let essay = new Essay()
-	essay = Object.assign(essay, result[0])                       
-	essay.save((err) => {                                    
+        essay = Object.assign(essay, result[0])                       
+        essay.save((err) => {                                    
             if (err) res.json({ success: false })                
-	    else res.json({ success: true, id: essay._id });
+            else res.json({ success: true, id: essay._id });
         })
     })
 });
@@ -57,7 +56,7 @@ router.get('/lv/:essay_id', (req, res) => {
     });
 });
 
-// Qoute Extraction
+// Quote Extraction
 router.get('/ec/:essay_id', (req, res) => {
     let essay_id = req.params.essay_id
     let options = {
@@ -85,18 +84,18 @@ router.post('/tv', (req, res) => {
         args: ["-v /tmp/usb/capstone/1551248019/checkpoints/vocab", "-m /tmp/usb/capstone/1551248019/checkpoints", "-s '"+sentence+"'"]
     };
 
-    console.log(sentence);
     PythonShell.run('run.py', options, function (err, result) {
         if (err) throw err;
-        console.log(result);
-	try
-	{
-        	res.json(JSON.parse(result[0]))
-	}
-	catch (e) {
-		console.log(e)
-		res.json({ "result": 0})
-	}
+
+        try
+        {
+            res.json(JSON.parse(result[0]))
+        }
+        catch (e)
+        {
+            console.log("Truth Judgement Error:"+e)
+            res.json({"result": 0})
+        }
     });
 });
 

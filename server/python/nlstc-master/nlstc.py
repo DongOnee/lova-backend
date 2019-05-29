@@ -7,7 +7,6 @@ import nltk
 
 """
 truth_check is composed of functions
-
 It makes you can use module easily in sequence
 """
 
@@ -15,9 +14,9 @@ def truth_check(sentence,vocab_file,model_file, file_types=["html","pdf"], searc
                 keyword_num=0, synonym_num=2,batch_size = 64, eval_file = "result.txt",
                 accuracy_threshold = 0.4, process_debug = False, key_num_option = False ) :
 
-
     if process_debug:
         print("INPUT : "+sentence)
+
         print("Token extracting ...")
     """
     Word extraction
